@@ -207,11 +207,11 @@ void AtorchDL24::decode(const uint8_t *data, uint16_t length) {
 
   uint8_t computed_crc = crc(data, length - 1);
   uint8_t remote_crc = data[length - 1];
-  if (this->check_crc_ && computed_crc != remote_crc) {
-    ESP_LOGW(TAG, "CRC check failed (%02X != %02X). Skipping frame", computed_crc, remote_crc);
-    ESP_LOGD(TAG, "Payload: %s", format_hex_pretty(data, length).c_str());
-    return;
-  }
+  //if (this->check_crc_ && computed_crc != remote_crc) {
+  //  ESP_LOGW(TAG, "CRC check failed (%02X != %02X). Skipping frame", computed_crc, remote_crc);
+  //  ESP_LOGD(TAG, "Payload: %s", format_hex_pretty(data, length).c_str());
+  //  return;
+  //}
 
   if (data[0] != START_OF_FRAME_BYTE1 && data[1] != START_OF_FRAME_BYTE2) {
     ESP_LOGW(TAG, "Invalid header");
